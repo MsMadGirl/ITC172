@@ -1,0 +1,20 @@
+1/9/17
+
+ADO - ActiveX Data Objects
+WCF - microsoft Web Communications Foundations
+
+Separation of function
+	like separating CSS from HTML
+	in database, separate display layer (get and display data) from business layer (does functions, methods) from data layer
+	easier to troubleshoot
+	more scalable
+	allows you to update one layer without touching others
+	
+
+Devops - continuous development, uses services heavily
+
+Model View Control (MVC)
+
+1/11/17
+
+whiteboard things first

@@ -65,10 +65,7 @@ public partial class _Default : System.Web.UI.Page
             tip.TipPercent = double.Parse(OtherTextBox.Text);
         }//end else other text box
 
-        ResultsLabel.Text = "Amount: " + tip.MealAmount.ToString() + "<br/>" 
-            +  "Tip: " + tip.CalculateTip().ToString("$#,##0.00") + "<br/>"
-            +  "Tax: " + tip.CalculateTax().ToString"$#,##0.00"() + "<br/>" 
-            +  "Total: " + tip.CalculateTotal().ToString("$#,##0.00");
+            ResultsLabel.Text = ("Amount: " + tip.MealAmount.ToString() + "<br/>" +  "Tip: " + tip.CalculateTip().ToString("$#,##0.00") + "<br/>" +  "Tax: " + tip.CalculateTax().ToString"$#,##0.00"() + "<br/>" +  "Total: " + tip.CalculateTotal().ToString("$#,##0.00"));
 
         
     }//end GetInfo
