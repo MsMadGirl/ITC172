@@ -20,6 +20,7 @@ public partial class _Default : System.Web.UI.Page
         //initialize the loginClass and pass it the user and password
         LoginClass lc = new LoginClass(UserNameTB.Text, PasswordTB.Text);
         int key = lc.ValidateLogin(); //call the validation method
+
         if (key != 0)
         {
             //if the login is good save the key to a session variable
