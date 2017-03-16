@@ -4,18 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9eccc9f056bf46fd8ec3e13408b48373" Name="Diagram1">
-        <EntityTypeShape EntityType="Community_AssistModel.GrantRequest" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Community_AssistModel.GrantType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Community_AssistModel.LoginHistoryTable" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Community_AssistModel.Person" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Community_AssistModel.PersonAddress" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+      <Diagram DiagramId="81c11a78d38643188b00b8b15183f45c" Name="Diagram1">
+        <EntityTypeShape EntityType="Community_AssistModel.Contact" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Community_AssistModel.GrantRequest" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Community_AssistModel.GrantReview" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Community_AssistModel.GrantType" Width="1.5" PointX="3.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Community_AssistModel.LoginHistoryTable" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Community_AssistModel.Person" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Community_AssistModel.PersonAddress" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="Community_AssistModel.FK__Contact__PersonK__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="Community_AssistModel.FK__GrantRequ__Grant__34C8D9D1" ManuallyRouted="false" />
         <AssociationConnector Association="Community_AssistModel.FK__GrantRequ__Perso__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="Community_AssistModel.FK__GrantRevi__Grant__37A5467C" ManuallyRouted="false" />
         <AssociationConnector Association="Community_AssistModel.FK__LoginHist__Perso__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="Community_AssistModel.FK__PersonAdd__Perso__3B75D760" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Community_AssistModel.GrantReview" Width="1.5" PointX="5.25" PointY="2.75" />
-        <AssociationConnector Association="Community_AssistModel.FK__GrantRevi__Grant__37A5467C" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

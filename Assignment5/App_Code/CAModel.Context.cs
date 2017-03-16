@@ -25,12 +25,13 @@ public partial class Community_AssistEntities : DbContext
         throw new UnintentionalCodeFirstException();
     }
 
+    public virtual DbSet<Contact> Contacts { get; set; }
     public virtual DbSet<GrantRequest> GrantRequests { get; set; }
+    public virtual DbSet<GrantReview> GrantReviews { get; set; }
     public virtual DbSet<GrantType> GrantTypes { get; set; }
     public virtual DbSet<LoginHistoryTable> LoginHistoryTables { get; set; }
     public virtual DbSet<Person> People { get; set; }
     public virtual DbSet<PersonAddress> PersonAddresses { get; set; }
-    public virtual DbSet<GrantReview> GrantReviews { get; set; }
 
     public virtual int usp_Login(string email, string password)
     {

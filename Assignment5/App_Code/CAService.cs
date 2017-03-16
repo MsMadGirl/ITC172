@@ -11,16 +11,34 @@ public class CAService : ICAService
     Community_AssistEntities cae = new Community_AssistEntities();
     public bool ApplyForGrant(GrantRequest gr)
     {
-        throw new NotImplementedException();
-    }//and apply
+        bool result = true;
+        try
+        {
+            //GrantReview review = new GrantReview();
+            //review.GrantRequest = gr; 
+            //review.GrantRequestStatus = "pending";
+            cae.GrantRequests.Add(gr);
+            //cae.GrantReviews.Add(review);
+            cae.SaveChanges();
+        }
+        catch(Exception ex)
+        {
+            result = false;
+            throw ex;
+           
+        }
 
+        return result;
 
+    }
 
-    public List<GrantInfo> GetGrantsByPerson(int PersonID)
+ 
+
+    public List<GrantInfo> GetGrantsByPerson(int personId)
     {
         var grants = from g in cae.GrantRequests
                      from r in g.GrantReviews
-                     where g.PersonKey == PersonID
+                     where g.PersonKey == personId
                      select new
                      {
                          g.GrantRequestDate,
@@ -39,20 +57,19 @@ public class CAService : ICAService
             gi.Status = gr.GrantRequestStatus;
 
             info.Add(gi);
-        }
 
+        }
         return info;
     }
 
     public List<GrantType> GetGrantTypes()
     {
         var types = from g in cae.GrantTypes
-                    select new
-
-                    {
-                        g.GrantTypeKey,
-                        g.GrantTypeName
-                    };
+                     select new
+                     {
+                         g.GrantTypeKey,
+                         g.GrantTypeName
+                     };
         List<GrantType> gTypes = new List<GrantType>();
         foreach(var t in types)
         {
@@ -62,34 +79,33 @@ public class CAService : ICAService
             gTypes.Add(type);
         }
         return gTypes;
-    }//end get
+    }
 
     public int PersonLogin(string user, string password)
     {
         int key = 0;
         int result = cae.usp_Login(user, password);
-        if(result !=-1)
+        if(result != -1)
         {
             var uKey = (from p in cae.People
-                       where p.PersonEmail.Equals(user)
-                       select p.PersonKey).FirstOrDefault();
+                        where p.PersonEmail.Equals(user)
+                        select p.PersonKey).FirstOrDefault();
             key = (int)uKey;
-        }//end if
-
+        }
         return key;
-    }//end login
+    }
 
     public bool RegisterPerson(PersonLite p)
     {
         bool result = true;
-        int success = cae.usp_Register(p.LastName, p.FirstName, p.Email, 
-            p.Password, p.Apartment, p.Street, p.City, p.State, p.ZipCode,
-            p.WorkPhone, p.HomePhone);
+        int success = cae.usp_Register(p.LastName, p.FirstName, p.Email,
+            p.Password, p.Apartment, p.Street, p.City, p.State,
+            p.Zipcode, p.HomePhone, p.WorkPhone);
         if (success == -1)
         {
             result = false;
-        }//end if
+        }
 
         return result;
-    }//end register
+    }
 }

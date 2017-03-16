@@ -10,6 +10,16 @@
 using System;
 using System.Collections.Generic;
 
+public partial class Contact
+{
+    public int ContactKey { get; set; }
+    public string ContactNumber { get; set; }
+    public Nullable<int> ContactTypeKey { get; set; }
+    public Nullable<int> PersonKey { get; set; }
+
+    public virtual Person Person { get; set; }
+}
+
 public partial class GrantRequest
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -75,6 +85,7 @@ public partial class Person
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
     public Person()
     {
+        this.Contacts = new HashSet<Contact>();
         this.GrantRequests = new HashSet<GrantRequest>();
         this.LoginHistoryTables = new HashSet<LoginHistoryTable>();
         this.PersonAddresses = new HashSet<PersonAddress>();
@@ -88,6 +99,8 @@ public partial class Person
     public System.DateTime PersonEntryDate { get; set; }
     public Nullable<int> PersonPassWordSeed { get; set; }
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Contact> Contacts { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     public virtual ICollection<GrantRequest> GrantRequests { get; set; }
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

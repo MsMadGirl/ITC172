@@ -20,11 +20,10 @@ public interface ICAService
 
     [OperationContract]
     List<GrantType> GetGrantTypes();
-    
-    [OperationContract]
-    List<GrantInfo> GetGrantsByPerson(int PersonID);
 
-}
+    [OperationContract]
+    List<GrantInfo> GetGrantsByPerson(int personId);
+} 
 
 [DataContract]
 public class PersonLite
@@ -46,7 +45,7 @@ public class PersonLite
     [DataMember]
     public string State { set; get; }
     [DataMember]
-    public string ZipCode { set; get; }
+    public string Zipcode { set; get; } 
     [DataMember]
     public string HomePhone { set; get; }
     [DataMember]
@@ -65,3 +64,5 @@ public class GrantInfo
     [DataMember]
     public string Status { set; get; }
 }
+
+
